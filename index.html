@@ -128,24 +128,15 @@
             "EEM": { bg: "from-sky-500 to-sky-600", dot: "bg-sky-500", hex: "#0ea5e9" },
             // Sector & Thematic
             "SMH": { bg: "from-fuchsia-500 to-fuchsia-600", dot: "bg-fuchsia-500", hex: "#d946ef" },
-            "XLE": { bg: "from-red-500 to-red-600", dot: "bg-red-500", hex: "#ef4444" },
             // Fixed Income
             "TLT": { bg: "from-emerald-500 to-emerald-600", dot: "bg-emerald-500", hex: "#10b981" },
             "LQD": { bg: "from-teal-500 to-teal-600", dot: "bg-teal-500", hex: "#14b8a6" },
-            "HYG": { bg: "from-green-500 to-green-600", dot: "bg-green-500", hex: "#22c55e" },
             // Cash / Defensive
-            "SHV": { bg: "from-slate-400 to-slate-500", dot: "bg-slate-400", hex: "#94a3b8" },
             // Commodities
             "GLD": { bg: "from-amber-500 to-amber-600", dot: "bg-amber-500", hex: "#f59e0b" },
-            "SLV": { bg: "from-zinc-400 to-zinc-500", dot: "bg-zinc-400", hex: "#a1a1aa" },
-            "USO": { bg: "from-orange-500 to-orange-600", dot: "bg-orange-500", hex: "#f97316" },
-            "COPX": { bg: "from-orange-600 to-orange-700", dot: "bg-orange-600", hex: "#ea580c" },
-            "URA": { bg: "from-lime-500 to-lime-600", dot: "bg-lime-500", hex: "#84cc16" },
-            "DBA": { bg: "from-yellow-500 to-yellow-600", dot: "bg-yellow-500", hex: "#eab308" },
             // Alternatives
             "VNQ": { bg: "from-rose-500 to-rose-600", dot: "bg-rose-500", hex: "#f43f5e" },
             "IBIT": { bg: "from-orange-400 to-amber-500", dot: "bg-orange-400", hex: "#fb923c" },
-            "ETHA": { bg: "from-purple-500 to-purple-600", dot: "bg-purple-500", hex: "#a855f7" }
         };
 
         const ASSET_NAMES = {
@@ -153,16 +144,10 @@
             "SPY": "S&P 500", "QQQ": "Nasdaq-100", "IWM": "Russell 2000",
             "VGK": "Europe", "EEM": "Emerging Markets",
             // Sector & Thematic
-            "SMH": "Semiconductors", "XLE": "Energy Sector",
             // Fixed Income
-            "TLT": "Treasury 20Y+", "LQD": "Corp Bonds IG", "HYG": "High Yield Bonds",
             // Cash
-            "SHV": "Short Treasury",
             // Commodities
-            "GLD": "Gold", "SLV": "Silver", "USO": "Oil", 
-            "COPX": "Copper Miners", "URA": "Uranium", "DBA": "Agriculture",
             // Alternatives
-            "VNQ": "Real Estate", "IBIT": "Bitcoin ETF", "ETHA": "Ethereum ETF"
         };
 
         // --- BACKTEST CHART ---
@@ -386,7 +371,7 @@
         const App = () => {
             const [fullData, setFullData] = useState(null);
             const [lookback, setLookback] = useState('1W');
-            const [rebalance, setRebalance] = useState('2M');
+            const [rebalance, setRebalance] = useState('1W');
             const [riskLevel, setRiskLevel] = useState(1);
             const [lastUpdate, setLastUpdate] = useState(null);
             const [mode, setMode] = useState('LOADING');
@@ -719,43 +704,22 @@
                                         <div><span className="text-white font-semibold">EEM:</span> <span className="text-slate-400">Emerging Markets</span></div>
                                     </div>
                                 </div>
-                                {/* Sector & Thematic */}
-                                <div>
-                                    <h4 className="text-fuchsia-400 font-bold text-xs uppercase tracking-wider mb-3 pb-2 border-b border-slate-700/50">Sector & Thematic</h4>
-                                    <div className="space-y-2 text-sm">
-                                        <div><span className="text-white font-semibold">SMH:</span> <span className="text-slate-400">Semiconductors</span></div>
-                                        <div><span className="text-white font-semibold">XLE:</span> <span className="text-slate-400">Energy Sector</span></div>
-                                    </div>
-                                </div>
                                 {/* Fixed Income */}
                                 <div>
                                     <h4 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-3 pb-2 border-b border-slate-700/50">Fixed Income</h4>
                                     <div className="space-y-2 text-sm">
                                         <div><span className="text-white font-semibold">TLT:</span> <span className="text-slate-400">Treasury 20Y+ Bonds</span></div>
                                         <div><span className="text-white font-semibold">LQD:</span> <span className="text-slate-400">Investment Grade Corp</span></div>
-                                        <div><span className="text-white font-semibold">HYG:</span> <span className="text-slate-400">High Yield Bonds</span></div>
-                                        <div><span className="text-white font-semibold">SHV:</span> <span className="text-slate-400">Short Treasury (Cash)</span></div>
                                     </div>
                                 </div>
-                                {/* Commodities */}
+                                {/* Thematic & Alternatives */}
                                 <div>
-                                    <h4 className="text-amber-400 font-bold text-xs uppercase tracking-wider mb-3 pb-2 border-b border-slate-700/50">Commodities</h4>
+                                    <h4 className="text-fuchsia-400 font-bold text-xs uppercase tracking-wider mb-3 pb-2 border-b border-slate-700/50">Thematic & Alternatives</h4>
                                     <div className="space-y-2 text-sm">
+                                        <div><span className="text-white font-semibold">SMH:</span> <span className="text-slate-400">Semiconductors</span></div>
                                         <div><span className="text-white font-semibold">GLD:</span> <span className="text-slate-400">Gold</span></div>
-                                        <div><span className="text-white font-semibold">SLV:</span> <span className="text-slate-400">Silver</span></div>
-                                        <div><span className="text-white font-semibold">USO:</span> <span className="text-slate-400">Crude Oil</span></div>
-                                        <div><span className="text-white font-semibold">COPX:</span> <span className="text-slate-400">Copper Miners</span></div>
-                                        <div><span className="text-white font-semibold">URA:</span> <span className="text-slate-400">Uranium</span></div>
-                                        <div><span className="text-white font-semibold">DBA:</span> <span className="text-slate-400">Agriculture</span></div>
-                                    </div>
-                                </div>
-                                {/* Alternatives */}
-                                <div>
-                                    <h4 className="text-rose-400 font-bold text-xs uppercase tracking-wider mb-3 pb-2 border-b border-slate-700/50">Alternatives</h4>
-                                    <div className="space-y-2 text-sm">
                                         <div><span className="text-white font-semibold">VNQ:</span> <span className="text-slate-400">Real Estate (REITs)</span></div>
                                         <div><span className="text-white font-semibold">IBIT:</span> <span className="text-slate-400">Bitcoin ETF</span></div>
-                                        <div><span className="text-white font-semibold">ETHA:</span> <span className="text-slate-400">Ethereum ETF</span></div>
                                     </div>
                                 </div>
                             </div>

@@ -21,18 +21,7 @@ from datetime import datetime
 
 # --- STRATEGIC ASSET UNIVERSE (20 ETFs) ---
 ASSETS = [
-    # 1. CORE EQUITIES
-    "SPY", "QQQ", "IWM", "VGK", "EEM",
-    # 2. SECTOR & THEMATIC
-    "SMH", "XLE",
-    # 3. FIXED INCOME
-    "TLT", "LQD", "HYG",
-    # 4. CASH / DEFENSIVE
-    "SHV",
-    # 5. COMMODITIES
-    "GLD", "SLV", "USO", "COPX", "URA", "DBA",
-    # 6. ALTERNATIVES
-    "VNQ", "IBIT", "ETHA"
+    "SPY", "QQQ", "IWM", "VGK", "EEM", "SMH", "TLT", "LQD", "GLD", "VNQ", "IBIT"
 ]
 
 # 5 Risk Levels (Gamma Values)
